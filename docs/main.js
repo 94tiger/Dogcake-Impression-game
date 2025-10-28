@@ -573,11 +573,11 @@ function findBestLagCorrelation(sampleVols, userVols, maxLagChunks = 20) {
 // map corr to 0..100 score
 function corrToScore(corr) {
   const positive = Math.max(0, corr);
-  const score = Math.round(Math.min(100, (positive / 0.75) * 100));
+  const score = Math.round(Math.min(100, (positive / 0.65) * 100));
   return score;
 }
 
-const DEFAULT_MAX_LAG_CHUNKS = 20;
+const DEFAULT_MAX_LAG_CHUNKS = 100;
 
 function computeScoreWithAlignment(sampleVols, userVols) {
   if (!sampleVols.length || !userVols.length) return { score: 0, bestCorr:0, bestLag:0 };
